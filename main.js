@@ -23,45 +23,4 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3];
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5];
 
 
-
-/* This project is incomplete, however the validateCred function is work. */
-
 // Add your functions below:
-// Returns true when valid & false if invalid
-// Making use of the Luhn algorithm
-let validateCred = arr => {
-  let sum = 0;
-  // iterate from the farthest digit to the right
-  // sum up all digits in the credit card number
-  for(let i = arr.length - 1; i >= 0; i--){
-     if (i % 2 === (arr.length - 1) % 2){
-      sum += arr[i];
-      console.log('index ' + i + ' adding ' + arr[i] + ' equals ' + sum);
-     }
-     else {
-      // every other digit is doubled
-      console.log('index ' + i + ' with val ' + arr[i])
-      let times2 = arr[i] * 2;
-      console.log('index ' + i + ' with val ' + arr[i]+' x 2 = ' + times2)
-
-
-      // if the number is > 9, add 9
-      if (times2 > 9) {
-        let minus9 = times2 - 9
-        console.log('index ' + i + ' with val ' + times2 + ' - 9 = ' + minus9)
-        sum += minus9;
-        console.log('minus 9 sum is ' + sum)
-      }
-      else {
-        sum += times2;
-        console.log('adding ' + times2 + ' equals ' + sum);
-      }
-     }
-  }
-      // sum % 10 = 0 , then the number is valid, else invalid
-      console.log(sum)
-      return sum % 10 === 0 ? 'valid' : 'invalid';
-};
-
-console.log(valid3);
-console.log(validateCred(invalid1));
